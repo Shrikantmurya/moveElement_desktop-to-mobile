@@ -21,11 +21,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
     <script>
-        //desktop menu move in mobile menu
-        var MovableElement = "#MoveMenu";
-        var WrapElementFrom = "#desktopMenuWrap";
-        var WrapElementTo = "#mobileMenuWrap";
-        var run = false;
+        function moveElement(MovableElement, WrapElementFrom, WrapElementTo){
+            var run = false;
         $(document).ready(function () {
             if (window.innerWidth < 992 && !run) {
                 $(MovableElement).appendTo(WrapElementFrom);
@@ -45,7 +42,12 @@
                 run = !run;
             }
         });
+        }
 
+
+        //move element desktop to mobile layout 
+        //moveelementId, elementwrapFrom, elementwrapTo
+        moveElement("#MoveMenu", "#desktopMenuWrap", "#mobileMenuWrap");
     </script>
 </body>
 
