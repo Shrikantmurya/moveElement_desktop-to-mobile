@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <div id="desktopMenuWrap" style="background-color: red; padding:200px">
+
+    </div>
+    <br />
+
+    <div id="mobileMenuWrap" style="background-color: yellow; padding:20px">
+        <div id="MoveMenu">
+            <img
+                src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSFjZm7TgmvK8lEfSkzytyCuE1ZDE1WdexDyj7eRLSPHfexJQruR8uIGfY" />
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script>
+        //desktop menu move in mobile menu
+        var MovableElement = "#MoveMenu";
+        var WrapElementFrom = "#desktopMenuWrap";
+        var WrapElementTo = "#mobileMenuWrap";
+        var run = false;
+        $(document).ready(function () {
+            if (window.innerWidth < 992 && !run) {
+                $(MovableElement).appendTo(WrapElementFrom);
+                $(this).hide();
+                run = !run;
+            }
+        });
+        $(window).resize(function () {
+            if (window.innerWidth < 992 && !run) {
+                $(MovableElement).appendTo(WrapElementFrom);
+                $(this).hide();
+                run = !run;
+            }
+            else if (window.innerWidth >= 992 && run) {
+                $(MovableElement).appendTo(WrapElementTo);
+                $(this).hide();
+                run = !run;
+            }
+        });
+
+    </script>
+</body>
+
+</html>
